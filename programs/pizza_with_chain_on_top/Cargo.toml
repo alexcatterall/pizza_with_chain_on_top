@@ -1,16 +1,12 @@
-export default function Component() {
-  return (
-    <pre className="text-sm">
-      {`
 [package]
-name = "pizza-exchange"
+name = "pizza_with_chain_on_top"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "pizza_exchange"
+name = "pizza_with_chain_on_top"
 
 [features]
 no-entrypoint = []
@@ -18,10 +14,7 @@ no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
+idl-build = ["anchor-lang/idl-build"]
 
 [dependencies]
-anchor-lang = "0.30.0"
-      `}
-    </pre>
-  )
-}
+anchor-lang = "0.30.1"

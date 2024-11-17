@@ -1,7 +1,4 @@
-export default function Component() {
-    return (
-      <pre className="text-sm">
-        {`
+
   use anchor_lang::prelude::*;
   
   #[error_code]
@@ -14,8 +11,4 @@ export default function Component() {
       UnauthorizedVendor,
       #[msg("Order has not been placed")]
       OrderNotPlaced,
-  }
-        `}
-      </pre>
-    )
   }

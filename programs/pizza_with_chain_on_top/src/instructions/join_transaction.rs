@@ -1,7 +1,4 @@
-export default function Component() {
-    return (
-      <pre className="text-sm">
-        {`
+
   use anchor_lang::prelude::*;
   use crate::state::TransactionState;
   
@@ -16,8 +13,4 @@ export default function Component() {
       let transaction = &mut ctx.accounts.transaction;
       transaction.vendor = ctx.accounts.vendor.key();
       Ok(())
-  }
-        `}
-      </pre>
-    )
   }

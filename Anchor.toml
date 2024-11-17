@@ -1,11 +1,12 @@
 [toolchain]
+anchor_version = "0.30.1"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-pizza_with_chain_on_top = "5NaXcDNZHSAK8q6G15bcuFkJEcDL54Qd1EGbHTz2Qye9"
+pizza_with_chain_on_top = "BdgjiJ2dBLJcxH8tfP1UerqwVfQNx12nfpptJjuvmwkA"
 
 [registry]
 url = "https://api.apr.dev"

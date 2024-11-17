@@ -1,8 +1,4 @@
-export default function Component() {
-    return (
-      <pre className="text-sm">
-        {`
-  use anchor_lang::prelude::*;
+use anchor_lang::prelude::*;
   use crate::state::TransactionState;
   use crate::errors::PizzaExchangeError;
   
@@ -22,8 +18,4 @@ export default function Component() {
       
       transaction.transaction_state = vec![1]; // Set initial state
       Ok(())
-  }
-        `}
-      </pre>
-    )
   }
