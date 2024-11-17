@@ -29,7 +29,7 @@ describe("pizza-exchange", () => {
     await provider.connection.confirmTransaction(transactionSignature);
     await provider.connection.confirmTransaction(customerSignature);
     await provider.connection.confirmTransaction(vendorSignature);
-    
+
     // print balance of customerKeyPair
     const transactionBalance = await provider.connection.getBalance(transactionKeypair.publicKey);
     console.log(`Transaction Account Balance: ${transactionBalance / anchor.web3.LAMPORTS_PER_SOL} SOL`);
@@ -89,18 +89,23 @@ describe("pizza-exchange", () => {
     expect(transactionAccount.placed).to.be.true;
   });
 
-  it("Starts a transaction", async () => {
-    await program.methods
-      .startTransaction()
-      .accounts({
-        transaction: transactionKeypair.publicKey,
-        vendor: vendorKeypair.publicKey,
-      })
-      .signers([vendorKeypair])
-      .rpc();
+it("Starts a transaction", async () => {
+  await program.methods
+    .startTransaction()
+    .accounts({
+      transaction: transactionKeypair.publicKey,
+      vendor: vendorKeypair.publicKey,
+    })
+    .signers([vendorKeypair])
+    .rpc();
 
-    const transactionAccount = await program.account.transactionState.fetch(transactionKeypair.publicKey);
-    expect(transactionAccount.transactionState).to.deep.equal([1]);
-  });
+  const transactionAccount = await program.account.transactionState.fetch(transactionKeypair.publicKey);
+
+  // Convert Buffer to array before comparing
+  const transactionStateArray = Array.from(transactionAccount.transactionState);
+
+  // Now you can compare the array contents
+  expect(transactionStateArray).to.deep.equal([1]);
+});
 });
       
